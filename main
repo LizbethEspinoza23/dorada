@@ -1,0 +1,22 @@
+clc; 
+
+% Ejemplo 1.
+% En este caso se obtiene la señal subamortiguada de un circuito oscilador, se necesita saber cuando la señal es la maxima para trasmitir información.  
+f=@(x) exp(x.*(-2.5))*(cos(x.*(1.6583))-15.676*sin(x.*(1.6583)));
+xl=1.5;
+xu=3;
+it=10; 
+fi=linspace(1.5, 3, 300)
+[x,fx]=dorada(f, xl, xu, it)
+
+
+
+% Ejemplo 2
+% Se obtiene la onda de un voltaje, la empresa necesita medir el factor de voltaje aparente. 
+f=@(x) 12*cos(50*x-10);
+xl=0;
+xu=1;
+it=10; 
+esp=xl:0.01:xu;
+[x,fx]=dorada(f, xl, xu, it)
+
